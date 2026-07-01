@@ -1,0 +1,11 @@
+# Sensitive — contains internal/unpublished company information. Do not commit.
+company.md
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*~
+
+# Node (belt-and-braces; web/.gitignore also covers these)
+**/node_modules/
+**/.next/
