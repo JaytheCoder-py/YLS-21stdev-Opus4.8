@@ -57,12 +57,13 @@ const HalideLanding: React.FC = () => {
         }
 
         .halide-body {
+          position: relative;
           background-color: var(--bg);
           color: var(--silver);
           font-family: var(--font-syncopate), 'Syncopate', sans-serif;
           overflow: hidden;
           height: 100vh;
-          width: 100vw;
+          width: 100%;
           margin: 0;
           display: flex;
           align-items: center;
@@ -70,7 +71,7 @@ const HalideLanding: React.FC = () => {
         }
 
         .halide-grain {
-          position: fixed;
+          position: absolute;
           top: 0; left: 0; width: 100%; height: 100%;
           pointer-events: none;
           z-index: 100;
@@ -79,7 +80,7 @@ const HalideLanding: React.FC = () => {
 
         .viewport {
           perspective: 2000px;
-          width: 100vw; height: 100vh;
+          width: 100%; height: 100vh;
           display: flex; align-items: center; justify-content: center;
           overflow: hidden;
         }
@@ -114,7 +115,7 @@ const HalideLanding: React.FC = () => {
         }
 
         .interface-grid {
-          position: fixed;
+          position: absolute;
           inset: 0;
           padding: 4rem;
           display: grid;
