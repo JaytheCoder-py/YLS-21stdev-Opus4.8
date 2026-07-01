@@ -8,6 +8,11 @@ This repo is a **design/content brief** for a marketing website for **YLS Rare E
 
 The root holds the source material — `design.md` (design language), `company.md` (content), and `assets/` (imagery). The actual application lives in **`web/`** (see "The web app" below). The app is in a subfolder rather than the root because the root folder name contains capitals and a dot, which npm rejects as a package name, and the root already held non-scaffoldable brief files.
 
+## Version control
+
+- **Single git repo at the root** (remote `github.com/JaytheCoder-py/YLS-21stdev-Opus4.8`, default branch `main`). `web/` is tracked as part of this repo — it is **not** a submodule or a separate repo, so edit and commit it like any other folder here.
+- **`company.md` is gitignored on purpose** — it holds sensitive, unpublished company information. Keep it untracked: never `git add`/commit it, and don't paste its contents into tracked files, commits, PRs, or logs. Anyone who clones the repo won't receive it, so anything the site genuinely needs from it must be moved into tracked source **deliberately** — knowing it becomes public in the repo at that point.
+
 ## The web app (`web/`)
 
 Stack: **Next.js 16 (App Router, Turbopack) · React 19 · TypeScript · Tailwind CSS v4 · shadcn/ui**. All commands run **from inside `web/`**:
@@ -30,7 +35,7 @@ Key conventions:
 Building the site means combining these three sources — each answers a different question:
 
 - **`design.md` — how it should look.** A complete design-system specification written as YAML frontmatter (tokens: `colors`, `typography`, `rounded`, `spacing`, `components`) followed by prose documentation. **Note the mismatch to reconcile:** the spec documents *BMW M's* brand system (it is literally titled `BMW M-design-analysis`). It is the borrowed **visual design language** to apply to YLS's content — near-black canvas, white UPPERCASE display headlines, sparing use of the M-tricolor stripe, full-bleed photography, 0px corners. When implementing, keep the *structure and rules* (weights, spacing, radius, layout) but substitute YLS's own imagery and brand marks for BMW's automotive photography and M badging. Do not ship literal BMW branding.
-- **`company.md` — what it should say.** The single source of truth for all copy and facts (company profile, stats, products, grades, coatings, applications, trade terms, glossary). Do not invent figures, customers, certifications, or specs — pull them from here.
+- **`company.md` — what it should say.** The single source of truth for all copy and facts (company profile, stats, products, grades, coatings, applications, trade terms, glossary). Do not invent figures, customers, certifications, or specs — pull them from here. **Note it is gitignored and sensitive** (see "Version control") — reference it freely while working locally, but don't commit it or copy its raw contents into tracked files without intent.
 - **`assets/` — the imagery.** `company logo.png`, `assets/products/*.jpg` (~85 product photos), `assets/technical/*.jpg` (~44 process/equipment photos). These replace the automotive photography that carries the design language's visual weight.
 
 ## Design token conventions (from design.md)
